@@ -1,0 +1,26 @@
+import de
+
+thred = 0.6
+query = load(address1)
+db = load(address2)
+
+for i
+    qureyImg = query(i,:)
+    for j
+        dbImg = db(j,:)
+
+        similarity = sim(qureyImg, dbImg)
+
+        ifreal = compare(similarity, thred)
+
+        p1,p2 = decision(ifreal,groundTruth)
+    end
+
+    recall, precision = func(p1,p2,j)
+
+    recall, precision = max_k_similarity()
+
+    ap_i = curve(recall,precision);
+end
+
+map = mean(zp_i);

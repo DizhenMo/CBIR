@@ -1,0 +1,36 @@
+import dependency
+
+query = load(address1)
+db = load(address2)
+
+featCate = 'HOG' % haar,SIFI,LBP,SURF
+desCafe = 'BoF' & BoF,FV,VLAD
+
+% codebook for encoding
+dbAllFeat = featExtra(dbAllImg,featCate)
+codebook = kmeans(dbALLFeat)
+
+for i:
+    qureyImg = query(i,;)
+    queryFeat = featExtra(qureyImg,featCate)
+    queryDes = desExtra(qureyFeat, codebook,desCafe)
+
+    realNumofClass = savedInfo(queryImg, db)
+
+    for j
+        dbImg = db(j,:)
+
+        dbFeat = featExtra(dbImg, featCate)
+        similarity = sim(queryFeat, dbFeat)
+        if real_k == max_k(similarity, k) % k return num
+
+        % p1 sample num of return and true
+        p1 = decision(ifreal_k, groundTruth)
+    end
+
+    % recall = p1/realNumofClass, precision = p1/k
+    recall_k_precision_k = func(p1, k, realNumofClass) %YOLO
+    recallvec, precvec = max_k_similarity(recall_k, precision_k)
+
+    so_j = curve(recallvec, precvec)
+end
